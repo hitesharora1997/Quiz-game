@@ -12,8 +12,12 @@ func main() {
 
 	file, err := os.Open(*csvFilename)
 	if err != nil {
-		fmt.Println("file doesn't exist", *csvFilename)
-		os.Exit(1)
+		exit(fmt.Sprintf("file doesn't exist %v", *csvFilename))
 	}
 	_ = file
+}
+
+func exit(msg string) {
+	fmt.Println(msg)
+	os.Exit(1)
 }
