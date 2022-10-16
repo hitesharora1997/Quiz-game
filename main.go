@@ -16,14 +16,32 @@ func main() {
 		exit(fmt.Sprintf("file doesn't exist %v", *csvFilename))
 	}
 	read := csv.NewReader(file)
+	// Read all data from the file
 	lines, err := read.ReadAll()
 	if err != nil {
 		exit("Failed to parse the provided CSV file")
 	}
-	fmt.Println(lines)
+	problems := parseLines(lines)
+	fmt.Println(problems)
+}
+
+func parseLines(lines [][]string) []problem {
+	// Making a slice of problem which lines length
+	ret := make([]problem, len(lines))
+
+	for i, line := range lines {
+		ret[i] = problem{
+			q: line[0],
+			a: line[1],
+		}
+	}
+
+	return ret
 }
 
 type problem struct {
+	q string
+	a string
 }
 
 func exit(msg string) {
