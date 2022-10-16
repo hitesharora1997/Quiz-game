@@ -21,7 +21,9 @@ func main() {
 		exit("Failed to parse the provided CSV file")
 	}
 	fmt.Println(lines)
+}
 
+type problem struct {
 }
 
 func exit(msg string) {
