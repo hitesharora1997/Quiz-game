@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	csvFilename := flag.String("csv", "problems.csv", "This document contains all the problem statements in format of `question,answer``")
+	csvFilename := flag.String("csv", "problems.csv", "This document contains all the problem statements in format of `question,answer`")
 	flag.Parse()
 
 	file, err := os.Open(*csvFilename)
