@@ -17,12 +17,15 @@ func main() {
 	if err != nil {
 		exit(fmt.Sprintf("file doesn't exist %v", *csvFilename))
 	}
+
 	read := csv.NewReader(file)
 	// Read all data from the file
 	lines, err := read.ReadAll()
+	// Check the error
 	if err != nil {
 		exit("Failed to parse the provided CSV file")
 	}
+	// ParseLines is the function which take the Input data what we got from read.ReadAll()
 	problems := parseLines(lines)
 	fmt.Println(problems)
 
@@ -50,6 +53,7 @@ type problem struct {
 	a string
 }
 
+// exit function
 func exit(msg string) {
 	fmt.Println(msg)
 	os.Exit(1)
