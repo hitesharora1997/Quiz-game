@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
+	// flag here for the new string
 	csvFilename := flag.String("csv", "problems.csv", "This document contains all the problem statements in format of `question,answer`")
+	// parsing all the flags
 	flag.Parse()
 
 	file, err := os.Open(*csvFilename)
